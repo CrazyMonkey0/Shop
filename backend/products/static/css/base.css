@@ -1,0 +1,154 @@
+@import url(//fonts.googleapis.com/css?family=Ubuntu);
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: helvetica, sans-serif;
+    background-color: rgb(235, 229, 229);
+    color: #222;
+}
+
+a {
+    text-decoration: none;
+    color: #222;
+}
+
+a:hover {
+    color: rgb(190, 111, 117);
+}
+
+#header {
+    padding: 25px 100px 30px;
+    font-size: 18px;
+    overflow: auto;
+}
+
+#header .logo {
+    font-family: 'Ubuntu', sans-serif;
+    float: left;
+    color: #222;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 6%;
+    cursor: pointer;
+}
+
+#header .logo:hover {
+    color: rgb(190, 111, 117);
+}
+
+#subheader {}
+
+#content {
+    padding: 0px 100px;
+    overflow: hidden;
+}
+
+#sidebar {
+    float: left;
+    width: 220px;
+    padding: 30px 20px 0 0;
+}
+
+#sidebar h3 {
+    text-align: center;
+}
+
+#sidebar ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+#sidebar ul li {
+    margin: 0;
+    padding-bottom: 7px;
+    list-style: none;
+}
+
+#sidebar ul li a {
+    display: block;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+#sidebar ul li.selected a {
+    color: #fff;
+    cursor: pointer;
+}
+
+#sidebar ul li.selected a:hover {
+    color: #ecdbdb;
+}
+
+
+#sidebar ul li.selected {
+    background: #5993bb;
+    border-radius: 4px;
+}
+
+#sidebar #sub {
+    padding-left: 15px;
+    padding-bottom: 3px;
+
+}
+
+
+#main {
+    float: left;
+    width: 96%;
+    margin-right: -220px;
+    overflow: hidden;
+}
+
+.product-list .item {
+    width: 27%;
+    height: 300px;
+    padding: 10px 20px 10px 10px;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.product-list .item img {
+    width: 100%;
+    height: 240px;
+    margin-bottom: 8px;
+}
+
+.product-list h1 {
+    padding-right: 200px;
+    text-align: center;
+}
+
+.product-detail {
+    padding: 0;
+    margin: 0;
+    text-align: justify;
+}
+
+.product-detail img {
+    float: left;
+    margin-right: 150px;
+    padding-top: 70px;
+}
+
+.product-detail h1 {
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.product-detail h2 {
+    text-align: center;
+    padding-bottom: 20px;
+    cursor: pointer;
+}
+
+.product-detail .price {
+    text-align: right;
+    font-size: 22px;
+    padding-bottom: 50px;
+    font-weight: bold;
+}

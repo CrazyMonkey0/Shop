@@ -15,13 +15,22 @@
         {% for c in categories %}
         <li {% if category.slug == c.slug %} class="selected" {% endif %}>
             <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+            {% if category.id == c.id %}
+            <ul>
+                {% for subcategory in subcategories %}
+                <li id="sub" {% if category.slug == subcategory.slug %} class="selected" {% endif %}>
+                    <a href="{{ subcategory.get_absolute_url }}">{{ subcategory.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </li>
         {% endfor %}
     </ul>
 </div>
 
 <div id="main" class="product-list">
-    <h1>{% if category %}{{ category.name }}{% else %}Produkty{% endif %}</h1>
+    <h1>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
     {% for product in products %}
     <div class="item">
         <a href="{{ product.get_absolute_url }}">
@@ -33,4 +42,5 @@
     </div>
     {% endfor %}
 </div>
+
 {% endblock %}
