@@ -4,17 +4,31 @@ from .models import Category, Product
 
 def product_list(request, category_slug=None):
     category = None
-    categories = Category.objects.all()
+    subcategories = None
+    categories = Category.objects.filter(parents__isnull=True)
     products = Product.objects.filter(available=True)
 
     if category_slug:
-        category = get_object_or_404(Category, slug=category_slug)
-        products = products.filter(category=category)
+        category = get_object_or_404(
+            Category, slug=category_slug)
+        # Download all subcategories
+        subcategories = category.category_set.all()
+        if subcategories:
+            # if we have subcategories we display all products for a given subcategory
+            products = products.filter(category=category)
+
+        # Create a list of category IDs (along with the ID of the category itself)
+        category_ids = [category.id] + list(
+            subcategory.id for subcategory in subcategories)
+        # Get all products belonging to the selected categories
+        products = Product.objects.filter(
+            category__id__in=category_ids, available=True)
 
     return render(request, 'products/product/list.html',
                   {'category': category,
                    'categories': categories,
-                   'products': products})
+                   'products': products,
+                   'subcategories': subcategories})
 
 
 def product_detail(request, id, slug):
