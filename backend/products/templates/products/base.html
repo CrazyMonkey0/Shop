@@ -11,13 +11,12 @@
     <body>
         <div id="header">
             <a href="/" class="logo">Shop</a>
-        </div>
-        <div id="subheader">
-            <div class="Cart">
+
+            <div class="cart">
                 {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
-                Cart:
                 <a href="{% url 'cart:cart_detail' %}">
+                    Cart <br>
                     {{ total_items }} product{{ total_items|pluralize:"s" }},
                     {{ cart.get_total_price }} zł
                 </a>

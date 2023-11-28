@@ -37,7 +37,11 @@ a:hover {
     color: rgb(190, 111, 117);
 }
 
-#subheader {}
+#header .cart {
+    float: right;
+    padding-right: 40px;
+    padding-bottom: 20px;
+}
 
 #content {
     padding: 0px 100px;
@@ -151,4 +155,8 @@ a:hover {
     font-size: 22px;
     padding-bottom: 50px;
     font-weight: bold;
+}
+
+.cart h4 {
+    color: brown;
 }
