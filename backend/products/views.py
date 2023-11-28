@@ -8,17 +8,12 @@ def product_list(request, category_slug=None):
     subcategories = None
     categories = Category.objects.filter(parents__isnull=True)
     products = Product.objects.filter(available=True)
-    cart_product_form = CartAddProductForm()
 
     if category_slug:
         category = get_object_or_404(
             Category, slug=category_slug)
         # Download all subcategories
         subcategories = category.category_set.all()
-        if subcategories:
-            # if we have subcategories we display all products for a given subcategory
-            products = products.filter(category=category)
-
         # Create a list of category IDs (along with the ID of the category itself)
         category_ids = [category.id] + list(
             subcategory.id for subcategory in subcategories)
@@ -30,13 +25,12 @@ def product_list(request, category_slug=None):
                   {'category': category,
                    'categories': categories,
                    'products': products,
-                   'subcategories': subcategories,
-                   'cart_product_form': cart_product_form})
+                   'subcategories': subcategories, })
 
 
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
-    cart_product_form = CartAddProductForm()
+    cart_product_form = CartAddProductForm(product=product)
 
     return render(request, 'products/product/detail.html',
                   {'product': product,

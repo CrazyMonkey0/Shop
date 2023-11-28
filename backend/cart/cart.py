@@ -4,7 +4,7 @@ from products.models import Product
 
 
 class Cart(object):
-    def __init__(self, request) -> None:
+    def __init__(self, request):
         """
         Initializing the shopping cart
         """
@@ -23,11 +23,11 @@ class Cart(object):
         # Mark the session as "modified" to make sure it is saved
         self.session.modified = True
 
-    def add(self, product, quantity=1, update_quantity=False):
+    def add(self, product, quantity=0, update_quantity=False):
         """
         Adding a product to the cart or changing its quantity
         """
-        product_id = product.id
+        product_id = str(product.id)
 
         if product_id not in self.cart:
             self.cart[product_id] = {

@@ -29,12 +29,18 @@ Your shopping cart
             </td>
             <td>{{ product.name }}</td>
             <td>
+                {% if product.quantity_available > 0 %}
                 <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                    <h4>{{item.quantity}}</h4>
+
                     {{ item.update_quantity_form.quantity }}
                     {{ item.update_quantity_form.override }}
                     <input type="submit" value="Update">
                     {% csrf_token %}
                 </form>
+                {% else %}
+                <h4>Sold out</h4>
+                {% endif %}
             </td>
             <td>
                 <form action="{% url 'cart:cart_remove' product.id %}" method="post">
