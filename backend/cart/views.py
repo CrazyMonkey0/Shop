@@ -12,11 +12,8 @@ def cart_detail(request):
 
     cart = Cart(request)
     for item in cart:
-        if item['product'].quantity_available > 0:
-            item['update_quantity_form'] = CartAddProductForm(
-                product=item['product'], initial={'override': True})
-        else:
-            item['quantity'] = 0
+        item['update_quantity_form'] = CartAddProductForm(
+            product=item['product'], initial={'override': True})
 
     return render(request, 'cart/detail.html', {'cart': cart})
 
