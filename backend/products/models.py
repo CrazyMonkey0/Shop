@@ -1,3 +1,5 @@
+from collections.abc import Iterable
+from typing import Any
 from django.db import models
 from django.urls import reverse
 
@@ -32,6 +34,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity_available = models.PositiveIntegerField(default=0)
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -46,3 +49,8 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('products:product_detail',
                        args=[self.id, self.slug])
+
+    def save(self, *args, **kwargs):
+        # Update the 'available' field based on 'quantity_available'
+        self.available = self.quantity_available > 0
+        return super(Product, self).save(*args, **kwargs)

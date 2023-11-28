@@ -12,7 +12,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'price', 'available', 'created', 'updated']
+    list_display = ['name', 'slug', 'price',
+                    'quantity_available', 'available', 'created', 'updated']
     list_filter = ['available', 'created', 'updated']
     # used it in the administrative interface to specify
     # fields that can be edited directly in the list view
