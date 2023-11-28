@@ -55,16 +55,29 @@ Your shopping cart
 
         <tr class="total">
             <td>Total</td>
-            <td colspan="4"></td>
+            <td colspan="3"></td>
             <td class="num">{{ cart.get_total_price|floatformat:2 }} zł</td>
+        </tr>
+
+        <tr class="buy">
+            <td>
+                <h3>
+                    <a href="{% url 'products:product_list' %}" class="button light">
+                        Continue shopping
+                    </a>
+                </h3>
+            </td>
+            <td colspan="3"></td>
+            <td>
+                <h3><a href="{% url 'orders:order_create' %}" class="button">
+                        Checkout
+                    </a>
+                </h3>
+            </td>
+
         </tr>
 
     </tbody>
 </table>
-
-<p class="text-right">
-    <a href="{% url 'products:product_list' %}" class="button light">Continue shopping</a>
-
-</p>
 
 {% endblock %}
