@@ -72,11 +72,16 @@ class Cart(object):
 
         for product in products:
             cart[str(product.id)]['product'] = product
+            cart[str(product.id)]['quantity_available'] = product.quantity_available
 
         for item in cart.values():
-            item['price'] = Decimal(item['price'])
-            item['total_price'] = item['price'] * item['quantity']
-            yield item
+            if item['quantity_available'] > 0:
+                item['price'] = Decimal(item['price'])
+                item['total_price'] = item['price'] * item['quantity']
+                yield item
+            else:
+                item['quantity'] = 0
+                yield item
 
     def __len__(self):
         """
