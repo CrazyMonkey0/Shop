@@ -1,0 +1,1494 @@
+[
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2023-11-20T23:43:32.061Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "1",
+            "object_repr": "Shoes",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2023-11-20T23:43:47.465Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "2",
+            "object_repr": "Pants",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2023-11-20T23:44:06.364Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "3",
+            "object_repr": "T-shirts",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2023-11-20T23:44:19.169Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "4",
+            "object_repr": "Sandals",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2023-11-20T23:44:35.913Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "5",
+            "object_repr": "Athletic shoes",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2023-11-20T23:45:16.356Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "1",
+            "object_repr": "Tommy Hilfiger men's jeans",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2023-11-20T23:46:07.516Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "2",
+            "object_repr": "Galaxy 6 Shoes",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2023-11-20T23:46:30.635Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2023-11-20T23:48:56.694Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "Tommy Hilfiger FLAG OUTSOLE TOMMY JEANS SANDAL",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2023-11-21T00:22:41.936Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "2",
+            "object_repr": "Galaxy 6 Shoes",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2023-11-21T15:33:37.726Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "6",
+            "object_repr": "Jeans",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2023-11-21T15:33:58.823Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "Tommy Hilfiger FLAG OUTSOLE TOMMY JEANS SANDAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2023-11-21T15:34:06.113Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "1",
+            "object_repr": "Tommy Hilfiger men's jeans",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2023-11-21T15:34:13.678Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "Tommy Hilfiger FLAG OUTSOLE TOMMY JEANS SANDAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2023-11-23T16:01:16.099Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "1",
+            "object_repr": "Tommy Hilfiger men's jeans",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2023-11-23T16:20:15.030Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "5",
+            "object_repr": "ddsa",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 17,
+        "fields": {
+            "action_time": "2023-11-23T16:20:26.045Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "5",
+            "object_repr": "ddsa",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 18,
+        "fields": {
+            "action_time": "2023-11-23T16:25:02.578Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "Tommy Hilfiger FLAG OUTSOLE TOMMY JEANS SANDAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 19,
+        "fields": {
+            "action_time": "2023-11-23T16:25:08.690Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "Tommy Hilfiger FLAG OUTSOLE TOMMY JEANS SANDAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 20,
+        "fields": {
+            "action_time": "2023-11-23T16:26:39.842Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "1",
+            "object_repr": "Tommy Hilfiger men's jeans",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 21,
+        "fields": {
+            "action_time": "2023-11-23T16:26:44.548Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "2",
+            "object_repr": "Galaxy 6 Shoes",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 22,
+        "fields": {
+            "action_time": "2023-11-23T16:26:58.502Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 23,
+        "fields": {
+            "action_time": "2023-11-23T21:07:11.460Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 24,
+        "fields": {
+            "action_time": "2023-11-23T21:10:47.697Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 25,
+        "fields": {
+            "action_time": "2023-11-23T21:10:51.973Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 26,
+        "fields": {
+            "action_time": "2023-11-23T21:11:35.437Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 27,
+        "fields": {
+            "action_time": "2023-11-23T22:54:31.099Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 28,
+        "fields": {
+            "action_time": "2023-11-23T22:54:50.223Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 29,
+        "fields": {
+            "action_time": "2023-11-23T23:05:25.809Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 30,
+        "fields": {
+            "action_time": "2023-11-23T23:05:55.675Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 31,
+        "fields": {
+            "action_time": "2023-11-23T23:19:28.270Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "2",
+            "object_repr": "Galaxy 6 Shoes",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 32,
+        "fields": {
+            "action_time": "2023-11-24T00:07:48.989Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 33,
+        "fields": {
+            "action_time": "2023-11-24T00:09:42.405Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 34,
+        "fields": {
+            "action_time": "2023-11-27T22:17:52.746Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 35,
+        "fields": {
+            "action_time": "2023-11-27T22:18:00.629Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "Tommy Hilfiger FLAG OUTSOLE TOMMY JEANS SANDAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 36,
+        "fields": {
+            "action_time": "2023-11-27T22:35:45.034Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 37,
+        "fields": {
+            "action_time": "2023-11-27T23:58:37.604Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "Tommy Hilfiger FLAG OUTSOLE TOMMY JEANS SANDAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 38,
+        "fields": {
+            "action_time": "2023-11-28T00:03:48.038Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "Tommy Hilfiger FLAG OUTSOLE TOMMY JEANS SANDAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 39,
+        "fields": {
+            "action_time": "2023-11-28T00:03:57.938Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "Tommy Hilfiger FLAG OUTSOLE TOMMY JEANS SANDAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 40,
+        "fields": {
+            "action_time": "2023-11-28T00:05:35.916Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "Tommy Hilfiger FLAG OUTSOLE TOMMY JEANS SANDAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 41,
+        "fields": {
+            "action_time": "2023-11-28T00:05:52.415Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "Tommy Hilfiger FLAG OUTSOLE TOMMY JEANS SANDAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 42,
+        "fields": {
+            "action_time": "2023-11-28T00:31:12.779Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 43,
+        "fields": {
+            "action_time": "2023-11-28T00:31:25.980Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 44,
+        "fields": {
+            "action_time": "2023-11-28T00:40:04.439Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 45,
+        "fields": {
+            "action_time": "2023-11-28T00:40:27.358Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 46,
+        "fields": {
+            "action_time": "2023-11-28T00:53:46.320Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 47,
+        "fields": {
+            "action_time": "2023-11-28T00:53:55.283Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 48,
+        "fields": {
+            "action_time": "2023-11-28T00:56:23.273Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 49,
+        "fields": {
+            "action_time": "2023-11-28T00:56:51.955Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 50,
+        "fields": {
+            "action_time": "2023-11-28T01:08:29.052Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 51,
+        "fields": {
+            "action_time": "2023-11-28T01:08:44.317Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Price\", \"Available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 52,
+        "fields": {
+            "action_time": "2023-11-28T01:12:48.042Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 53,
+        "fields": {
+            "action_time": "2023-11-28T01:56:21.126Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 54,
+        "fields": {
+            "action_time": "2023-11-28T01:56:35.970Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Price\", \"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 55,
+        "fields": {
+            "action_time": "2023-11-28T13:07:44.771Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 56,
+        "fields": {
+            "action_time": "2023-11-28T13:07:49.860Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "Tommy Hilfiger FLAG OUTSOLE TOMMY JEANS SANDAL",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 57,
+        "fields": {
+            "action_time": "2023-11-28T15:41:25.676Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 58,
+        "fields": {
+            "action_time": "2023-11-28T15:44:10.437Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 59,
+        "fields": {
+            "action_time": "2023-11-28T15:44:47.549Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 60,
+        "fields": {
+            "action_time": "2023-11-28T16:37:53.990Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 61,
+        "fields": {
+            "action_time": "2023-11-28T16:38:04.540Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Entrada 22 Sweat Pants",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Quantity available\"]}}]"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 1,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": 1,
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 2,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": 1,
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 3,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": 1,
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 4,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": 1,
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 5,
+        "fields": {
+            "name": "Can add permission",
+            "content_type": 2,
+            "codename": "add_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 6,
+        "fields": {
+            "name": "Can change permission",
+            "content_type": 2,
+            "codename": "change_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 7,
+        "fields": {
+            "name": "Can delete permission",
+            "content_type": 2,
+            "codename": "delete_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 8,
+        "fields": {
+            "name": "Can view permission",
+            "content_type": 2,
+            "codename": "view_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 9,
+        "fields": {
+            "name": "Can add group",
+            "content_type": 3,
+            "codename": "add_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 10,
+        "fields": {
+            "name": "Can change group",
+            "content_type": 3,
+            "codename": "change_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 11,
+        "fields": {
+            "name": "Can delete group",
+            "content_type": 3,
+            "codename": "delete_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 12,
+        "fields": {
+            "name": "Can view group",
+            "content_type": 3,
+            "codename": "view_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 13,
+        "fields": {
+            "name": "Can add user",
+            "content_type": 4,
+            "codename": "add_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 14,
+        "fields": {
+            "name": "Can change user",
+            "content_type": 4,
+            "codename": "change_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 15,
+        "fields": {
+            "name": "Can delete user",
+            "content_type": 4,
+            "codename": "delete_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 16,
+        "fields": {
+            "name": "Can view user",
+            "content_type": 4,
+            "codename": "view_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 17,
+        "fields": {
+            "name": "Can add content type",
+            "content_type": 5,
+            "codename": "add_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 18,
+        "fields": {
+            "name": "Can change content type",
+            "content_type": 5,
+            "codename": "change_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 19,
+        "fields": {
+            "name": "Can delete content type",
+            "content_type": 5,
+            "codename": "delete_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 20,
+        "fields": {
+            "name": "Can view content type",
+            "content_type": 5,
+            "codename": "view_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 21,
+        "fields": {
+            "name": "Can add session",
+            "content_type": 6,
+            "codename": "add_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 22,
+        "fields": {
+            "name": "Can change session",
+            "content_type": 6,
+            "codename": "change_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 23,
+        "fields": {
+            "name": "Can delete session",
+            "content_type": 6,
+            "codename": "delete_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 24,
+        "fields": {
+            "name": "Can view session",
+            "content_type": 6,
+            "codename": "view_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 25,
+        "fields": {
+            "name": "Can add category",
+            "content_type": 7,
+            "codename": "add_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 26,
+        "fields": {
+            "name": "Can change category",
+            "content_type": 7,
+            "codename": "change_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 27,
+        "fields": {
+            "name": "Can delete category",
+            "content_type": 7,
+            "codename": "delete_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 28,
+        "fields": {
+            "name": "Can view category",
+            "content_type": 7,
+            "codename": "view_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 29,
+        "fields": {
+            "name": "Can add product",
+            "content_type": 8,
+            "codename": "add_product"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 30,
+        "fields": {
+            "name": "Can change product",
+            "content_type": 8,
+            "codename": "change_product"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 31,
+        "fields": {
+            "name": "Can delete product",
+            "content_type": 8,
+            "codename": "delete_product"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 32,
+        "fields": {
+            "name": "Can view product",
+            "content_type": 8,
+            "codename": "view_product"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 33,
+        "fields": {
+            "name": "Can add order",
+            "content_type": 9,
+            "codename": "add_order"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 34,
+        "fields": {
+            "name": "Can change order",
+            "content_type": 9,
+            "codename": "change_order"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 35,
+        "fields": {
+            "name": "Can delete order",
+            "content_type": 9,
+            "codename": "delete_order"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 36,
+        "fields": {
+            "name": "Can view order",
+            "content_type": 9,
+            "codename": "view_order"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 37,
+        "fields": {
+            "name": "Can add order item",
+            "content_type": 10,
+            "codename": "add_orderitem"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 38,
+        "fields": {
+            "name": "Can change order item",
+            "content_type": 10,
+            "codename": "change_orderitem"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 39,
+        "fields": {
+            "name": "Can delete order item",
+            "content_type": 10,
+            "codename": "delete_orderitem"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 40,
+        "fields": {
+            "name": "Can view order item",
+            "content_type": 10,
+            "codename": "view_orderitem"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$0hiC1STE4qshsSQZGFXoDR$aobdYc2/3jCuDv6u3FaaBrDnBp5b90Qlc8ZzW2DIgpA=",
+            "last_login": "2023-11-28T14:00:48.608Z",
+            "is_superuser": true,
+            "username": "monkey",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2023-11-20T23:42:50.646Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 1,
+        "fields": {
+            "app_label": "admin",
+            "model": "logentry"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 2,
+        "fields": {
+            "app_label": "auth",
+            "model": "permission"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 3,
+        "fields": {
+            "app_label": "auth",
+            "model": "group"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 4,
+        "fields": {
+            "app_label": "auth",
+            "model": "user"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 5,
+        "fields": {
+            "app_label": "contenttypes",
+            "model": "contenttype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 6,
+        "fields": {
+            "app_label": "sessions",
+            "model": "session"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 7,
+        "fields": {
+            "app_label": "products",
+            "model": "category"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 8,
+        "fields": {
+            "app_label": "products",
+            "model": "product"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 9,
+        "fields": {
+            "app_label": "orders",
+            "model": "order"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 10,
+        "fields": {
+            "app_label": "orders",
+            "model": "orderitem"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "2rmb50wyuws1gsqjlvo9uobrpoe7m6cv",
+        "fields": {
+            "session_data": ".eJyrVkpOLCpRsqpWMgIRhaWJeSWZJZVKVkY6SgVFmcmpSlZKhiamegYGSrU6SsaoagwRaoyNDPQszZVqa2sBBPwYUA:1r80HA:MCZq93AfPJCovMTtlGWhNm64m2o2I_mXOSoVoegVZKU",
+            "expire_date": "2023-12-12T15:45:28.219Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "6ghybefpg7vrdkh86nwv2dds88fhk93t",
+        "fields": {
+            "session_data": ".eJyrVkpOLCpRsqpWMgIRhaWJeSWZJZVKVoY6SgVFmcmpSlZKhiamegYGSjpw2fjEssTMnMSkHKCsYa2OkjFOrcZGhvi01tYCAB_sKPQ:1r6IlO:Ufm-48w-3bQzLW7RyYuCI_KXPx7EnElD98uQunYchDY",
+            "expire_date": "2023-12-07T23:05:38.596Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "8k9hqxjrwsv1wjytrsua6c3q9kmkuwvc",
+        "fields": {
+            "session_data": ".eJyrVkpOLCpRsqpWMgIRhaWJeSWZJZVKVkY6SgVFmcmpSlZKhiamegYGSrU6SsaoagwRaoyNDMFqamsBBKsYQQ:1r6H6C:eRKjy43MLbxc5TJzHZz8YuwxqcZsYi64OqTttkyu2wU",
+            "expire_date": "2023-12-07T21:19:00.973Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "co0j4upe5wckxihb25hagz2unhnc2sm7",
+        "fields": {
+            "session_data": ".eJyrVkpOLCpRsqpWMgIRhaWJeSWZJZVKViY6SgVFmcmpSlZKhiamegYGSjpw2fjEssTMnMSkHKCsYa2OkiGqVkMkrUbG-LWi2WpOtK21tQCOoTuA:1r6IZR:6-GjqHKk1R5RdRdjoh5ieShQ6jX8mu1yTFkpt7vx_QM",
+            "expire_date": "2023-12-07T22:53:17.386Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "hcxclhky9ilbakc5xk4bcmrszve9y1pz",
+        "fields": {
+            "session_data": ".eJyrVkpOLCpRsqpWMgIRhaWJeSWZJZVKVoY6SgVFmcmpSlZKhiamegYGSjpw2fjEssTMnMSkHKCssUGtDrpeA-L11tYCAGnFKVo:1r6J4v:QCJWuylsH2t6bv68cIypcMUuNoOe7uTpOURx8_2r8mk",
+            "expire_date": "2023-12-07T23:25:49.605Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "it9g4a17i9pd3s5tclt04dp758pq3b1t",
+        "fields": {
+            "session_data": ".eJyljDsOgzAQRO-yNbJYm4-hTJ8zoPXaBCcIEjCRIsTdAxKKREGVLaaYN29nYBoClDOoLV4TdcGHD5QYwXPw7KAEJVHEMUQ_WtGbfEumXSkuEchTFZP0XFXxX-4qVzSFpppGN1TebgocOkP8cN0G7J26Wy-478LgjdgmYqejuPbWtZd9e3jQ0NistnYZKcO6KJLcWp0hG8zTfD1jZSxJ15otyqJ2hdVIShlUSZ5pzpyra05h-QIYwXM1:1r6K8S:T3MiV9nur6lRa4qBMnlzn894fcxz6DSErgLec-KRGwc",
+            "expire_date": "2023-12-08T00:33:32.809Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "locg2j87b93meghw8n6wolf8mmw19ege",
+        "fields": {
+            "session_data": ".eJyrVkpOLCpRsqpWMgIRhaWJeSWZJZVKVoY6SgVFmcmpSlZKhiamegYGSrU6SiY41RgbGIDV1NYCAAR8GD4:1r80WF:hP4cr2OItxZn4oyl6PYKYh5otvh9o8t94SKYBd9QssE",
+            "expire_date": "2023-12-12T16:01:03.510Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "pbr86bumcuv8s1lbbfuj0ek1k2reud94",
+        "fields": {
+            "session_data": ".eJx1jjsOgzAQRO-yNbL8AX8o0-cMaL02gSSCBEwRIe4eLFEkBVNsMfN2NCs0uKSuWeY4NX2AGgQUv55HesQhB-GOw21kNA5p6j3LCDvSmV3HEJ-Xg_0r6HDu9m8bNSpP1rnShGC1IC9MZXb5ILlE21oKQro2umAFKuWFKo22pGNsW6r2UsIpQb2CzOe94JD69IFaFPCaeop5e1kxzmEroDxlFOcHo84ZyZkzsG3bF1E-Wc0:1r815y:1HkeNM8FH72ExFWb8s_DDYN13cdHjj_9LlwUkT_031s",
+            "expire_date": "2023-12-12T16:37:58.021Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "qdea9pswfa1bjgd0t605apg5oz9jlj98",
+        "fields": {
+            "session_data": "eyJjYXJ0Ijp7fX0:1r6HPx:s0El1DHipAR9qTUO_V_VLk1TCIRY2gAg87RSzRH8I6Q",
+            "expire_date": "2023-12-07T21:39:25.334Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "qsg093qfyr4il30h8wxavdgaqle34jfc",
+        "fields": {
+            "session_data": ".eJxVjEsOgzAMRO_idRU1BBKHZfecATm2U2grkPisEHcvSGyY5bw3swHTtEC97Q9oaV26dp11anuBGizcukT81eEE8qHhPRoeh2XqkzkVc9HZNKPo73W5t4OO5u5Yo3pyiTHGMoigt5xsqMKRJMWzIMzIYouYNQpaci5ZVwaP7FVz5gr2PysdO3E:1r7ydu:HAX69zyiuDBbaxBA3dkRNfzlmL00mwBeVMME8AjPM5k",
+            "expire_date": "2023-12-12T14:00:50.670Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "vgeqdeavlikkxaeaeagjazcopb2slbtu",
+        "fields": {
+            "session_data": ".eJyrVkpOLCpRsqpWMgIRhaWJeSWZJZVKVoY6SgVFmcmpSlZKhiamegYGSjpw2fjEssTMnMSkHKCsYa2OkjGaVkuEXmMjQ9x6DYB6yba2thYAvlE7sQ:1r6IcF:CKddV4eNC34P_Vt-7RF9xcQCWgdOYwIAuFV1lLMLhfU",
+            "expire_date": "2023-12-07T22:56:11.601Z"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 1,
+        "fields": {
+            "name": "Shoes",
+            "slug": "shoes",
+            "parents": null
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 2,
+        "fields": {
+            "name": "Pants",
+            "slug": "pants",
+            "parents": null
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 3,
+        "fields": {
+            "name": "T-shirts",
+            "slug": "t-shirts",
+            "parents": null
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 4,
+        "fields": {
+            "name": "Sandals",
+            "slug": "sandals",
+            "parents": 1
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 5,
+        "fields": {
+            "name": "Athletic shoes",
+            "slug": "athletic-shoes",
+            "parents": 1
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 6,
+        "fields": {
+            "name": "Jeans",
+            "slug": "jeans",
+            "parents": 2
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 1,
+        "fields": {
+            "category": 6,
+            "name": "Tommy Hilfiger men's jeans",
+            "slug": "tommy-hilfiger-mens-jeans",
+            "image": "",
+            "description": "adsfafd",
+            "price": "123.00",
+            "quantity_available": 1,
+            "available": true,
+            "created": "2023-11-20T23:45:16.356Z",
+            "updated": "2023-11-23T16:26:39.841Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 2,
+        "fields": {
+            "category": 5,
+            "name": "Galaxy 6 Shoes",
+            "slug": "galaxy-6-shoes",
+            "image": "products/2023/11/20/butad_msOYKMB.png",
+            "description": "dfsdds",
+            "price": "145.00",
+            "quantity_available": 30,
+            "available": true,
+            "created": "2023-11-20T23:46:07.515Z",
+            "updated": "2023-11-23T23:19:28.268Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 3,
+        "fields": {
+            "category": 2,
+            "name": "Entrada 22 Sweat Pants",
+            "slug": "entrada-22-sweat-pants",
+            "image": "products/2023/11/20/adidas_LqDSblw.png",
+            "description": "",
+            "price": "320.97",
+            "quantity_available": 0,
+            "available": false,
+            "created": "2023-11-20T23:46:30.633Z",
+            "updated": "2023-11-28T16:38:04.539Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 4,
+        "fields": {
+            "category": 4,
+            "name": "Tommy Hilfiger FLAG OUTSOLE TOMMY JEANS SANDAL",
+            "slug": "tommy-hilfiger-flag-outsole-tommy-jeans-sandal",
+            "image": "products/2023/11/20/sand.png",
+            "description": "",
+            "price": "300.00",
+            "quantity_available": 1,
+            "available": true,
+            "created": "2023-11-20T23:48:56.694Z",
+            "updated": "2023-11-28T13:07:49.859Z"
+        }
+    },
+    {
+        "model": "orders.order",
+        "pk": 1,
+        "fields": {
+            "name": "asda",
+            "surname": "sddsa",
+            "email": "sadsa@sdapa.sad",
+            "city": "naqsdsa",
+            "address": "21321",
+            "postal_code": "3214",
+            "created": "2023-11-28T16:35:43.094Z",
+            "updated": "2023-11-28T16:35:43.094Z",
+            "paid": false
+        }
+    },
+    {
+        "model": "orders.orderitem",
+        "pk": 1,
+        "fields": {
+            "order": 1,
+            "product": 2,
+            "price": "145.00",
+            "quantity": 1
+        }
+    },
+    {
+        "model": "orders.orderitem",
+        "pk": 2,
+        "fields": {
+            "order": 1,
+            "product": 1,
+            "price": "123.00",
+            "quantity": 2
+        }
+    }
+]
