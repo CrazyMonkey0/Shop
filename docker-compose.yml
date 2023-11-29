@@ -22,6 +22,10 @@ services:
   celery:
     build: .
     working_dir: /code/backend
+    environment:
+      - POSTGRES_DB=shop
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     volumes:
       - .:/code
     command: celery --app shop worker -l info

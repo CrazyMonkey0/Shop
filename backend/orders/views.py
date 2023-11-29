@@ -20,7 +20,7 @@ def order_create(request):
                                              quantity=item['quantity'])
                 # Remove the contents of the shopping cart
             cart.clear()
-            order_created(order.id)
+            order_created.delay(order.id)
             return render(request,
                           'orders/order/created.html', {'order': order})
     else:
