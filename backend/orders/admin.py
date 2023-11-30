@@ -7,6 +7,11 @@ from django.contrib import admin
 from .models import Order, OrderItem
 
 
+def order_detail(obj):
+    return mark_safe('<a href="{}">View</a>'.format(
+        reverse('orders:admin_order_detail', args=[obj.id])))
+
+
 def export_to_csv(modeladmin, request, queryset):
     opts = modeladmin.model._meta
     response = HttpResponse(content_type='text/csv')
@@ -39,7 +44,7 @@ class OrderItemInline(admin.TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'surname', 'email',
+    list_display = ['id', order_detail, 'name', 'surname', 'email',
                     'address', 'postal_code', 'city', 'paid',
                     'created', 'updated',]
     list_filter = ['paid', 'created', 'updated']
