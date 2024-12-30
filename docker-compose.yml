@@ -47,6 +47,21 @@ services:
       - backend_network
       - shared_network
 
+  celery_beat:
+    build: .
+    working_dir: /code/backend
+    environment:
+      - POSTGRES_DB=shop
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - .:/code
+    command: celery --app shop beat -l info
+    depends_on:
+      - web
+    networks:
+      - backend_network
+
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8001

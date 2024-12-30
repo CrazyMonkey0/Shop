@@ -150,6 +150,18 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 CELERY_BROKER_URL = 'pyamqp://admin:mypass@rabbitmq:5672//'
 
 
+# Settings for periodic tasks
+CELERY_BEAT_SCHEDULE = {
+    'refresh-token-every-hour': {
+        'task': 'orders.tasks.refresh_access_token',
+        'schedule': timedelta(hours=1),  # 1 hour
+    },
+}
+
+# Allow http protocol for testing purposes
+
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+
 # Cache settings
 CACHES = {
     "default": {
