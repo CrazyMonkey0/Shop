@@ -19,7 +19,7 @@ class DecimalEncoder(json.JSONEncoder):
         if isinstance(obj, Decimal):
             return float(obj)
         return json.JSONEncoder.default(self, obj)
-
+    
 
 def paid_order(request, order_id):
     order = get_object_or_404(Order, id=request.POST.get('order_id'))
@@ -33,7 +33,7 @@ def paid_order(request, order_id):
         return render(request, 'orders/order/paid.html', {'order': order} )   
     else:
         return render(request, 'orders/order/error.html', {'order': order} )
-
+    
 
 def request_to_payment_gateway(request):
     if request.method == 'POST':
