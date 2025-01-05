@@ -1,10 +1,13 @@
 {% extends "products/base.html" %}
 {% block title %}
-Checkout
+Checking the shopping list
 {% endblock %}
 {% block content %}
-<h1>Checkout</h1>
+<h1>Checking the shopping list</h1>
 <div class="order-info">
+    Name: {{ name }} {{ order.surname }}{{json}} <br>
+    Email: {{ order.email }} <br>
+    Address:{{ order.address }} {{ order.postal_code }}<br>
     <h3>Order</h3>
     <ul>
         {% for item in cart %}
@@ -18,9 +21,8 @@ Checkout
     </ul>
     <p>Total: {{ cart.get_total_price }} zł</p>
 </div>
-<form action="." method="post" class="order-form">
-    {{ form.as_p }}
-    <p><input type="submit" value="next"></p>
+<form action="{% url 'orders:request_to_payment_gateway' %}" method="post" class="button">
+    <p><input type="submit" value="Pay"></p>
     {% csrf_token %}
 </form>
 {% endblock %}
