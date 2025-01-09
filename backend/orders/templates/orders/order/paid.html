@@ -1,0 +1,11 @@
+{% extends "products/base.html" %}
+{% block title %}
+Paid
+{% endblock %}
+
+{% if order.paid == true %}
+Successful payment
+Your order id {{ order.id }}
+{% else %}
+Payment error
+{% endif %}

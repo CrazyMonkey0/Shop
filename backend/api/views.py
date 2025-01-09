@@ -21,6 +21,7 @@ class PaidApiView(APIView):
         if serializer.is_valid():
             order.paid = request.data.get('is_paid', False)
             serializer.save()
-            return Response({'detail': 'Successful payment.'}, status=status.HTTP_200_OK)
+            return Response({'detail': 'Successful payment.', 
+                             'redirect_link': f"http://127.0.0.1:8001/orders/paid/{request.data.get('order_id')}" }, status=status.HTTP_200_OK)
            
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
