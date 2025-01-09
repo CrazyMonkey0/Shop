@@ -43,7 +43,8 @@ def refresh_access_token():
     oauth = OAuth2Session(client=client)
 
     try:
-        token_data = oauth.fetch_token(token_url=token_url, client_id=client_id, client_secret=client_secret)
+        # Use verify only dev mode
+        token_data = oauth.fetch_token(token_url=token_url, client_id=client_id, client_secret=client_secret, verify=False)
     except Exception as e:
         raise ValueError("Error while fetching the token: " + str(e))
 

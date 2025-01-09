@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions', 
     "corsheaders",
     'rest_framework',
     'products.apps.ProductsConfig',
@@ -178,7 +179,14 @@ CACHES = {
 
 # Session settings
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_CACHE_ALIAS = "sessions"
+SESSION_COOKIE_SAMESITE = 'Lax'  
+SESSION_COOKIE_SECURE = True # Set to True in production
+CSRF_COOKIE_SECURE = True # Set to True in production
+SESSION_COOKIE_HTTPONLY = True # Set to True in production
+SESSION_COOKIE_AGE = 86400  # 24 godziny
+SESSION_COOKIE_NAME = 'shop_sessionid'
+CSRF_COOKIE_NAME = 'shop_csrftoken'
+
 
 CACHES["sessions"] = {
     "BACKEND": "django_redis.cache.RedisCache",
@@ -186,7 +194,7 @@ CACHES["sessions"] = {
     "OPTIONS": {
         "CLIENT_CLASS": "django_redis.client.DefaultClient",
     },
-    "KEY_PREFIX": "session"
+    "KEY_PREFIX": "shop_session"
 }
 
 REST_FRAMEWORK = {
@@ -194,6 +202,6 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny'
     ],
 }

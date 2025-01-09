@@ -48,9 +48,10 @@ def request_to_payment_gateway(request):
         #  post request to payment gateway 
         # Verify use only in dev mode
         response = oauth.post(
-            'http://web:8000/api/orders/',
+            'https://web:8000/api/orders/',
             json=data,
             headers={'Authorization': f'Bearer {access_token}'},
+            verify=False
         )
 
         if response.status_code == 201:
