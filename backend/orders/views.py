@@ -1,5 +1,3 @@
-import re
-import token
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.admin.views.decorators import staff_member_required
 from cart.cart import Cart
@@ -21,18 +19,7 @@ class DecimalEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, obj)
     
 
-def paid_order(request, order_id):
-    order = get_object_or_404(Order, id=request.POST.get('order_id'))
 
-    if request.method == 'POST':
-        if order.paid:
-            return render(request, 'orders/order/paid.html', {'order': order} )
-        else:
-            return render(request, 'orders/order/error.html', {'order': order} )
-    if order.paid:
-        return render(request, 'orders/order/paid.html', {'order': order} )   
-    else:
-        return render(request, 'orders/order/error.html', {'order': order} )
     
 
 def request_to_payment_gateway(request):
@@ -52,16 +39,17 @@ def request_to_payment_gateway(request):
         # Get access token from cache
         access_token = cache.get('access_token')
         
-        #  post request to payment gateway
+        #  post request to payment gateway 
+        # Verify use only in dev mode
         response = oauth.post(
             'http://web:8000/api/orders/',
             json=data,
-            headers={'Authorization': f'Bearer {access_token}'}
+            headers={'Authorization': f'Bearer {access_token}'},
         )
 
         if response.status_code == 201:
             request.session['order_link'] = response.json().get("order_link")
-            return redirect(f'{response.json().get("order_link")}')
+            return redirect(f"{response.json().get('order_link')}")
         else:
             order = get_object_or_404(Order, id=data.get('order_id'))
             return render(request, 'orders/order/payments.html', {
@@ -77,7 +65,18 @@ def order_create(request):
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
         if form.is_valid():
-            order = form.save()
+            check_data = json.loads(request.session.get('data', '{}'))
+            if check_data.get('order_id'):
+                order = get_object_or_404(Order, id=check_data.get('order_id'))
+                order.name = form.cleaned_data['name']
+                order.surname = form.cleaned_data['surname']
+                order.email = form.cleaned_data['email']
+                order.address = form.cleaned_data['address']
+                order.postal_code = form.cleaned_data['postal_code']
+                order.city = form.cleaned_data['city']
+            else:
+                order = form.save()
+        
             data['client'] = {
                 "name": order.name,
                 "surname": order.surname,
@@ -88,12 +87,19 @@ def order_create(request):
             for item in cart:
                 if item['product'].quantity_available > 0:
                     # Add order item to the database
-                    OrderItem.objects.create(
-                        order=order,
-                        product=item['product'],
-                        price=item['price'],
-                        quantity=item['quantity']
-                    )
+                    existing_order_item = OrderItem.objects.filter(order=order, product=item['product']).first()
+                    if existing_order_item:
+                        existing_order_item.quantity = item['quantity']
+                        existing_order_item.save()
+                    elif item['price'] == 0:
+                        pass
+                    else:
+                        OrderItem.objects.create(
+                            order=order,
+                            product=item['product'],
+                            price=item['price'],
+                            quantity=item['quantity']
+                        )
                     products.append({
                         "name": item['product'].name,
                         "quantity": item['quantity']
