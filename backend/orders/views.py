@@ -19,14 +19,15 @@ class DecimalEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, obj)
     
 
-def paid_order(request, id):
-    order = get_object_or_404(Order, id=id)
-
+def paid_order(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
     if order.paid:
-        return render(request, 'orders/order/paid.html', {'order': order} )   
+        cart = Cart(request)
+        cart.clear()
+        return render(request, 'orders/order/paid.html', {'order': order})
     else:
-        return render(request, 'orders/order/paid.html', {'order': order} )
-    
+        return render(request, 'orders/order/payment_error.html', {'order': order})
+
 
 def request_to_payment_gateway(request):
     if request.method == 'POST':
