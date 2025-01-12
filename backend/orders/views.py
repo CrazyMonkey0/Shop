@@ -50,10 +50,6 @@ def request_to_payment_gateway(request):
     if request.method == 'POST':
         # Get order data from session
         data = json.loads(request.session.get('data', '{}'))
-        
-        # redirect to payment gateway if order link is available
-        if request.session.get('order_link'):
-            return redirect(f'{request.session.get("order_link")}')
 
         # Create OAuth2 session
         client_id = os.getenv('CLIENT_ID')
@@ -73,7 +69,6 @@ def request_to_payment_gateway(request):
         )
 
         if response.status_code == 201:
-            request.session['order_link'] = response.json().get("order_link")
             return redirect(f"{response.json().get('order_link')}")
         else:
             order = get_object_or_404(Order, id=data.get('order_id'))
@@ -99,6 +94,7 @@ def order_create(request):
                 order.address = form.cleaned_data['address']
                 order.postal_code = form.cleaned_data['postal_code']
                 order.city = form.cleaned_data['city']
+                del request.session['data']
             else:
                 order = form.save()
         
