@@ -6,8 +6,12 @@ Payment Error
 
 {% block content %}
 <h1>Payment Error</h1>
+{% if order %}
 <p>There was an issue with your payment for order ID {{ order.id }}.</p>
 <p>Please try again or contact support for assistance.</p>
-
+{% else %}
+<p>There was an issue with your payment, and we could not retrieve your order details.</p>
+<p>Please try again or contact support for assistance.</p>
+{% endif %}
 <p><a href="{% url 'orders:order_create' %}">Return to order creation page</a></p>
 {% endblock %}

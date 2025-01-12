@@ -20,12 +20,29 @@ class DecimalEncoder(json.JSONEncoder):
     
 
 def paid_order(request, order_id):
-    order = get_object_or_404(Order, id=order_id)
+    # Attempt to retrieve the order by ID, return payment error page if not found
+    try:
+        order = get_object_or_404(Order, id=order_id)
+    except:
+        return render(request, 'orders/order/payment_error.html')
+    
+    # Check if the order is already paid
     if order.paid:
-        cart = Cart(request)
-        cart.clear()
+        # Attempt to load session data, return paid page if loading fails
+        try:
+            data = json.loads(request.session.get('data', '{}'))
+        except:
+            return render(request, 'orders/order/paid.html', {'order': order})
+        
+        # If the order ID matches the session data, clear the session
+        if order_id == data.get('order_id'):
+            for key in request.session.keys():
+                del request.session[key]
+        
+        # Render the paid order page
         return render(request, 'orders/order/paid.html', {'order': order})
     else:
+        # Render the payment error page if the order is not paid
         return render(request, 'orders/order/payment_error.html', {'order': order})
 
 
