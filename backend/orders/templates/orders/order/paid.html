@@ -14,7 +14,7 @@ Payment Successful
                 <p>Order ID: <strong>{{ order.id }}</strong></p>
                 <p>Thank you for your purchase!</p>
             </div>
-
+            balavla:{{data.order_id}}
             <h3>Order Summary</h3>
             <ul class="list-group">
                 {% for item in order.items.all %}

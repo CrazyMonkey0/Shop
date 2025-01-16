@@ -35,12 +35,11 @@ def paid_order(request, order_id):
             return render(request, 'orders/order/paid.html', {'order': order})
         
         # If the order ID matches the session data, clear the session
-        if order_id == data.get('order_id'):
-            for key in request.session.keys():
-                del request.session[key]
+        if str(order_id) == str(data.get('order_id')):
+            request.session.clear()
         
         # Render the paid order page
-        return render(request, 'orders/order/paid.html', {'order': order})
+        return render(request, 'orders/order/paid.html', {'order': order, 'data': data})
     else:
         # Render the payment error page if the order is not paid
         return render(request, 'orders/order/payment_error.html', {'order': order})
@@ -50,7 +49,7 @@ def request_to_payment_gateway(request):
     if request.method == 'POST':
         # Get order data from session
         data = json.loads(request.session.get('data', '{}'))
-
+        
         # Create OAuth2 session
         client_id = os.getenv('CLIENT_ID')
         client = BackendApplicationClient(client_id=client_id)
@@ -59,23 +58,40 @@ def request_to_payment_gateway(request):
         # Get access token from cache
         access_token = cache.get('access_token')
         
-        #  post request to payment gateway 
         # Verify use only in dev mode
-        response = oauth.post(
-            'https://web:8000/api/orders/',
+        if request.session.get('payment_id'):
+            response = oauth.put(
+            f'https://web:8000/api/orders/{request.session.get("payment_id")}/',
             json=data,
             headers={'Authorization': f'Bearer {access_token}'},
             verify=False
-        )
-
-        if response.status_code == 201:
-            return redirect(f"{response.json().get('order_link')}")
+            )
+            if response.status_code == 200:
+                return redirect(f"{response.json().get('payment_link')}")
+            else:
+                order = get_object_or_404(Order, id=data.get('order_id'))
+                return render(request, 'orders/order/payments.html', {
+                    'order': order,
+                    'requests': request.session.get('data'),
+                })
         else:
-            order = get_object_or_404(Order, id=data.get('order_id'))
-            return render(request, 'orders/order/payments.html', {
-                'order': order,
-                'requests': request.session.get('data'),
-            })
+            response = oauth.post(
+                'https://web:8000/api/orders/',
+                json=data,
+                headers={'Authorization': f'Bearer {access_token}'},
+                verify=False
+            )
+            if response.status_code == 201:
+                request.session['payment_id'] = response.json().get("payment_id")
+                return redirect(f"{response.json().get('payment_link')}")
+            else:
+                order = get_object_or_404(Order, id=data.get('order_id'))
+                return render(request, 'orders/order/payments.html', {
+                    'order': order,
+                    'requests': request.session.get('data'),
+                })
+
+        
 
 
 def order_create(request):
@@ -94,7 +110,6 @@ def order_create(request):
                 order.address = form.cleaned_data['address']
                 order.postal_code = form.cleaned_data['postal_code']
                 order.city = form.cleaned_data['city']
-                del request.session['data']
             else:
                 order = form.save()
         
