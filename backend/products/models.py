@@ -7,16 +7,13 @@ from django.urls import reverse
 class Category(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True)
-    parents = models.ForeignKey(
-        'self', related_name='category_set', null=True, blank=True,
-        on_delete=models.CASCADE, limit_choices_to={'parents__isnull': True})
-
+    # Reference to the parent category (self-referential)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='subcategories') 
+    
+    
     class Meta:
-        ordering = ('name',)
-        # Defines the human-readable name of the model in singular.
-        verbose_name = 'category'
-        # Defines the human-readable plural name of the model.
-        verbose_name_plural = 'categories'
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
 
     def __str__(self) -> str:
         return self.name
@@ -24,6 +21,23 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('products:product_list_by_category',
                        args=[self.slug])
+
+    def get_ancestors(self):
+        """Retrieve all ancestors (the path to the root category)."""
+        ancestors = []
+        category = self
+        while category.parent:
+            ancestors.append(category.parent)
+            category = category.parent
+        return ancestors[::-1] 
+
+    def get_descendants(self):
+        """Retrieve all subcategories, including nested ones."""
+        descendants = []
+        for subcategory in self.subcategories.all():
+            descendants.append(subcategory)
+            descendants.extend(subcategory.get_descendants())
+        return descendants
 
 
 class Product(models.Model):
