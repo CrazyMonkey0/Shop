@@ -11,8 +11,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
+from dotenv import load_dotenv
 import os
 
+
+# Load environment variables from .env file
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +31,7 @@ SECRET_KEY = 'django-insecure-z2+n9ot8kly4wx9bdn%8!m#l$@4bzk)0qtpmqn9!vy$osh#4ng
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'django_extensions', 
+    "corsheaders",
+    'rest_framework',
     'products.apps.ProductsConfig',
     'orders.apps.OrdersConfig',
     'cart.apps.CartConfig',
@@ -47,6 +54,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -143,3 +151,58 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Settings for broker to rabbitmq
 CELERY_BROKER_URL = 'pyamqp://admin:mypass@rabbitmq:5672//'
+
+
+# Settings for periodic tasks
+CELERY_BEAT_SCHEDULE = {
+    'refresh-token-every-hour': {
+        'task': 'orders.tasks.refresh_access_token',
+        'schedule': timedelta(hours=1),  # 1 hour
+    },
+}
+
+# Allow http protocol for testing purposes
+
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+
+# Cache settings
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://redis:6379/0",  
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+        "KEY_PREFIX": "cache"
+    }
+}
+
+# Session settings
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_COOKIE_SAMESITE = 'Lax'  
+SESSION_COOKIE_SECURE = True # Set to True in production
+CSRF_COOKIE_SECURE = True # Set to True in production
+SESSION_COOKIE_HTTPONLY = True # Set to True in production
+SESSION_COOKIE_AGE = 86400  # 1 day
+SESSION_COOKIE_NAME = 'shop_sessionid'
+CSRF_COOKIE_NAME = 'shop_csrftoken'
+SECURE_SSL_REDIRECT = True # http -> https
+
+
+CACHES["sessions"] = {
+    "BACKEND": "django_redis.cache.RedisCache",
+    "LOCATION": "redis://redis:6379/1",  
+    "OPTIONS": {
+        "CLIENT_CLASS": "django_redis.client.DefaultClient",
+    },
+    "KEY_PREFIX": "shop_session"
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ],
+}

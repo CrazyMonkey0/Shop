@@ -7,6 +7,19 @@ services:
       - POSTGRES_DB=shop
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    networks:
+      - backend_network
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: always
+    networks:
+      - backend_network
 
   rabbitmq:
     image: rabbitmq:3.8
@@ -18,6 +31,8 @@ services:
       - "15672:15672"
     depends_on:
       - db
+    networks:
+      - backend_network
 
   celery:
     build: .
@@ -30,17 +45,34 @@ services:
       - .:/code
     command: celery --app shop worker -l info
     depends_on:
-      - db
-      - rabbitmq
+      - web
+    networks:
+      - backend_network
+      - shared_network
+
+  celery_beat:
+    build: .
+    working_dir: /code/backend
+    environment:
+      - POSTGRES_DB=shop
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - .:/code
+    command: celery --app shop beat -l info
+    depends_on:
+      - web
+    networks:
+      - backend_network
 
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver_plus --cert-file cert.pem 0.0.0.0:8001
     working_dir: /code/backend
     volumes:
       - .:/code
     ports:
-      - "8000:8000"
+      - "8001:8001"
     environment:
       - POSTGRES_DB=shop
       - POSTGRES_USER=postgres
@@ -48,4 +80,17 @@ services:
     entrypoint: /entrypoint.sh
     depends_on:
       - db
+      - redis
       - rabbitmq
+    networks:
+      - backend_network
+      - shared_network
+
+networks:
+  shared_network:
+    external: true
+  backend_network:
+    driver: bridge
+
+volumes:
+  redis_data: {}
