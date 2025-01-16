@@ -9,18 +9,27 @@
 <div id="sidebar">
     <h3>Categories</h3>
     <ul>
-        <li {% if not category %}class="selected" {% endif %}>
-            <a href="{% url 'products:product_list' %}">All</a>
-        </li>
+        <li> <a href="/">All</a></li>
         {% for c in categories %}
-        <li {% if category.slug == c.slug %} class="selected" {% endif %}>
+        <li {% if category and category.id == c.id or category in c.get_descendants %}class="selected" {% endif %}>
             <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-            {% if category.id == c.id %}
+
+            {% if category and category.id == c.id or category in c.get_descendants %}
             <ul>
-                {% for subcategory in subcategories %}
-                <li id="sub" {% if category.slug == subcategory.slug %} class="selected" {% endif %}>
+                {% for subcategory in c.subcategories.all %}
+                <li {% if category and category.id == subcategory.id or category in subcategory.get_descendants%}class="selected"
+                    {% endif %}>
                     <a href="{{ subcategory.get_absolute_url }}">{{ subcategory.name }}</a>
                 </li>
+                {% if category and category.id == subcategory.id or category in subcategory.get_descendants %}
+                <ul>
+                    {% for s in subcategory.subcategories.all%}
+                    <li {% if category and category.id == s.id %}class="selected" {% endif %}>
+                        <a href="{{ s.get_absolute_url }}">{{ s.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif%}
                 {% endfor %}
             </ul>
             {% endif %}
@@ -28,6 +37,7 @@
         {% endfor %}
     </ul>
 </div>
+
 
 <div id="main" class="product-list">
     <h1>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
