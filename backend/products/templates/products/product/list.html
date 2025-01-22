@@ -6,51 +6,82 @@
 {% endblock %}
 
 {% block content %}
-<div id="sidebar">
-    <h3>Categories</h3>
-    <ul>
-        <li> <a href="/">All</a></li>
-        {% for c in categories %}
-        <li {% if category and category.id == c.id or category in c.get_descendants %}class="selected" {% endif %}>
-            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+<div class="container my-5">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-2 position-sticky">
+            <div class="category-panel">
+                <div class="category-panel-header bg-dark text-white">
+                    <h5 class="mb-0">Categories</h5>
+                </div>
+                <ul class="category-list list-group list-group-flush">
+                    <li class="category-item list-group-item">
+                        <a href="/"
+                            class="text-decoration-none {% if not category %}fw-bold text-primary{% endif %}">All</a>
+                    </li>
+                    {% for c in categories %}
+                    <li class="category-item list-group-item">
+                        <a href="{{ c.get_absolute_url }}"
+                            class="text-decoration-none {% if category and category.id == c.id or category in c.get_descendants %}fw-bold text-primary{% endif %}">
+                            {{ c.name }}
+                        </a>
 
-            {% if category and category.id == c.id or category in c.get_descendants %}
-            <ul>
-                {% for subcategory in c.subcategories.all %}
-                <li {% if category and category.id == subcategory.id or category in subcategory.get_descendants%}class="selected"
-                    {% endif %}>
-                    <a href="{{ subcategory.get_absolute_url }}">{{ subcategory.name }}</a>
-                </li>
-                {% if category and category.id == subcategory.id or category in subcategory.get_descendants %}
-                <ul>
-                    {% for s in subcategory.subcategories.all%}
-                    <li {% if category and category.id == s.id %}class="selected" {% endif %}>
-                        <a href="{{ s.get_absolute_url }}">{{ s.name }}</a>
+                        {% if category and category.id == c.id or category in c.get_descendants %}
+                        <ul class="subcategory-list list-unstyled ps-3">
+                            {% for subcategory in c.subcategories.all %}
+                            <li class="subcategory-item">
+                                <a href="{{ subcategory.get_absolute_url }}"
+                                    class="text-decoration-none {% if category and category.id == subcategory.id or category in subcategory.get_descendants %}fw-bold text-primary{% endif %}">
+                                    {{ subcategory.name }}
+                                </a>
+                                {% if category and category.id == subcategory.id or category in subcategory.get_descendants %}
+                                <ul class="subcategory-list list-unstyled ps-3">
+                                    {% for s in subcategory.subcategories.all %}
+                                    <li class="subcategory-item">
+                                        <a href="{{ s.get_absolute_url }}"
+                                            class="text-decoration-none {% if category and category.id == s.id %}fw-bold text-primary{% endif %}">
+                                            {{ s.name }}
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
                     </li>
                     {% endfor %}
                 </ul>
-                {% endif%}
+            </div>
+        </div>
+
+        <!-- Product List -->
+        <div class="col-md-10">
+            <h1 class="mb-5 text-center mt-1">{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
+            <div class="row row-cols-1 row-cols-sm-3 row-cols-md-5 g-7">
+                {% for product in products %}
+                <div class="col">
+                    <div class="product-cart shadow-sm">
+                        <a href="{{ product.get_absolute_url }}" class="product-image-link d-block">
+                            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"
+                                class="product-image " alt="{{ product.name }}">
+                        </a>
+                        <div class="product-cart-body">
+                            <h5 class="product-title">
+                                <a href="{{ product.get_absolute_url }}" class="text-decoration-none text-dark">
+                                    {{ product.name }}
+                                </a>
+                            </h5>
+                            <p class="product-price text-muted">{{ product.price }} zł</p>
+                        </div>
+                    </div>
+                </div>
                 {% endfor %}
-            </ul>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-
-
-<div id="main" class="product-list">
-    <h1>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
-    {% for product in products %}
-    <div class="item">
-        <a href="{{ product.get_absolute_url }}">
-            <img
-                src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
-        </a>
-        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
-        {{ product.price }} zł
+            </div>
+        </div>
     </div>
-    {% endfor %}
 </div>
+
 
 {% endblock %}

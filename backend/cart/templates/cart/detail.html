@@ -2,82 +2,82 @@
 {% load static %}
 
 {% block title %}
-Your shopping cart
+Your Shopping Cart
 {% endblock %}
 
 {% block content %}
-<h1> Your shopping cart</h1>
-<table class="cart">
-    <thead>
-        <tr>
-            <th> Image</th>
-            <th> Product</th>
-            <th> Quantity</th>
-            <th> Remove</th>
-            <th> Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for item in cart %}
-        {% with product=item.product %}
-        <tr>
-            <td>
-                <a href="{{ product.get_absolute_url }}">
-                    <img src="{% if product.image %}{{ product.image.url }}
-                {% else %}{% static 'img/no_image.png' %}{% endif %}">
-                </a>
-            </td>
-            <td>{{ product.name }}</td>
-            <td>
-                {% if product.quantity_available > 0 %}
-                <form action="{% url 'cart:cart_add' product.id %}" method="post">
-                    <h4>{{item.quantity}}</h4>
+<div class="container my-5">
+    <h1 class="text-center mb-4 text-primary">Your Shopping Cart</h1>
+    <div class="cart-table">
+        <table class="table table-bordered table-striped shadow rounded ">
+            <thead class="thead-dark bg-primary text-white">
+                <tr>
+                    <th class="text-center">Image</th>
+                    <th class="text-center">Product</th>
+                    <th class="text-center col-md-1">Quantity</th>
+                    <th class="text-center col-md-2">Update Quantity</th>
+                    <th class="text-center col-md-1">Remove</th>
+                    <th class="text-center col-md-1">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart %}
+                {% with product=item.product %}
+                <tr>
+                    <td class="align-middle text-center ">
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"
+                                class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
+                        </a>
+                    </td>
+                    <td class="align-middle text-center ">{{ product.name }}</td>
+                    <td class="align-middle text-center">
+                        <h4 class="text-center">{{ item.quantity }}</h4>
+                    </td>
+                    <td class="align-middle text-center">
+                        {% if product.quantity_available > 0 %}
+                        <form action="{% url 'cart:cart_add' product.id %}" method="post"
+                            class="d-flex justify-content-center text-center">
+                            <div class="input-group justify-content-center">
+                                {{ item.update_quantity_form.quantity}}
+                                {{ item.update_quantity_form.override }}
+                                <button type="submit" class="btn btn-warning ms-2 shadow-sm">Update</button>
+                            </div>
+                            {% csrf_token %}
+                        </form>
+                        {% else %}
+                        <h4 class="text-danger text-center">Sold out</h4>
+                        {% endif %}
+                    </td>
+                    <td class="align-middle text-center">
+                        <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+                            <button type="submit" class="btn btn-danger shadow-sm">
+                                <i class="fas fa-trash-alt"></i> Remove
+                            </button>
+                            {% csrf_token %}
+                        </form>
+                    </td>
+                    <td class="align-middle text-end text-center">{{ item.price }} zł</td>
+                </tr>
+                {% endwith %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="summary">
+        <h4 class="total">Total: {{ cart.get_total_price|floatformat:2 }} zł</h4>
+        <br>
+        <h3 class="summary_checkout">
+            <a href="{% url 'orders:order_create' %}" class="btn btn-success shadow-sm">
+                <i class="fas fa-credit-cart"></i> Checkout
+            </a>
+        </h3>
+        <h3 class="summary_continue">
+            <a href="{% url 'products:product_list' %}" class="btn btn-dark shadow-sm">
+                <i class="fas fa-shopping-basket"></i> Continue Shopping
+            </a>
+        </h3>
+    </div>
 
-                    {{ item.update_quantity_form.quantity }}
-                    {{ item.update_quantity_form.override }}
-                    <input type="submit" value="Update">
-                    {% csrf_token %}
-                </form>
-                {% else %}
-                <h4>Sold out</h4>
-                {% endif %}
-            </td>
-            <td>
-                <form action="{% url 'cart:cart_remove' product.id %}" method="post">
-                    <input type="submit" value="Remove">
-                    {% csrf_token %}
-                </form>
-            </td>
-            <td class="num">{{ item.price }}zł</td>
-        </tr>
-        {% endwith %}
-        {% endfor %}
-
-        <tr class="total">
-            <td>Total</td>
-            <td colspan="3"></td>
-            <td class="num">{{ cart.get_total_price|floatformat:2 }} zł</td>
-        </tr>
-
-        <tr class="buy">
-            <td>
-                <h3>
-                    <a href="{% url 'products:product_list' %}" class="button light">
-                        Continue shopping
-                    </a>
-                </h3>
-            </td>
-            <td colspan="3"></td>
-            <td>
-                <h3><a href="{% url 'orders:order_create' %}" class="button">
-                        Checkout
-                    </a>
-                </h3>
-            </td>
-
-        </tr>
-
-    </tbody>
-</table>
-
+</div>
 {% endblock %}

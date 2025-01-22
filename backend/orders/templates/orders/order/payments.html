@@ -1,28 +1,63 @@
 {% extends "products/base.html" %}
 {% block title %}
-Checking the shopping list
+Checking the Shopping List
 {% endblock %}
+
 {% block content %}
-<h1>Checking the shopping list</h1>
-<div class="order-info">
-    Name: {{ name }} {{ order.surname }}{{json}} <br>
-    Email: {{ order.email }} <br>
-    Address:{{ order.address }} {{ order.postal_code }}<br>
-    <h3>Order</h3>
-    <ul>
-        {% for item in cart %}
-        {%if item.quantity_available > 0%}
-        <li>
-            {{ item.quantity }}x {{ item.product.name }}
-            <span>{{ item.total_price }} zł</span>
-        </li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-    <p>Total: {{ cart.get_total_price }} zł</p>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-12">
+
+            <h1 class="text-center mb-4">Checking the Shopping List</h1>
+
+            <!-- Order Information Section -->
+            <div class="order-info bg-light p-4 rounded shadow-sm mb-4">
+                <h3 class="mb-3">Your Order Information</h3>
+                <table class="table table-borderless">
+                    <tr>
+                        <td><strong>Name:</strong></td>
+                        <td>{{ name }} {{ order.surname }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email:</strong></td>
+                        <td>{{ order.email }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Address:</strong></td>
+                        <td>{{ order.address }} {{ order.postal_code }}</td>
+                    </tr>
+                </table>
+
+                <!-- Order Details -->
+                <h3 class="mt-4">Order Details</h3>
+                <ul class="list-group">
+                    {% for item in cart %}
+                    {% if item.quantity_available > 0 %}
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>{{ item.quantity }}x {{ item.product.name }}</span>
+                        <span>{{ item.total_price }} zł</span>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+
+                <hr class="my-3">
+
+                <!-- Total -->
+                <div class="d-flex justify-content-end">
+                    <p class="fw-bold"><strong>Total:</strong> {{ cart.get_total_price }} zł</p>
+                </div>
+            </div>
+
+            <!-- Payment Form Section -->
+            <div class="mt-4 text-center">
+                <form action="{% url 'orders:request_to_payment_gateway' %}" method="post" class="d-inline-block">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success btn-lg px-5 py-3">Proceed to Pay</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
 </div>
-<form action="{% url 'orders:request_to_payment_gateway' %}" method="post" class="button">
-    <p><input type="submit" value="Pay"></p>
-    {% csrf_token %}
-</form>
 {% endblock %}

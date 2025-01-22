@@ -5,13 +5,26 @@ Payment Error
 {% endblock %}
 
 {% block content %}
-<h1>Payment Error</h1>
-{% if order %}
-<p>There was an issue with your payment for order ID {{ order.id }}.</p>
-<p>Please try again or contact support for assistance.</p>
-{% else %}
-<p>There was an issue with your payment, and we could not retrieve your order details.</p>
-<p>Please try again or contact support for assistance.</p>
-{% endif %}
-<p><a href="{% url 'orders:order_create' %}">Return to order creation page</a></p>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Alert for Payment Error -->
+            <div class="alert alert-danger text-center">
+                <h1 class="display-4 mb-3">Payment Error</h1>
+                {% if order %}
+                <p>There was an issue with your payment for order ID <strong>{{ order.id }}</strong>.</p>
+                <p>Please try again or contact support for assistance.</p>
+                {% else %}
+                <p>There was an issue with your payment, and we could not retrieve your order details.</p>
+                <p>Please try again or contact support for assistance.</p>
+                {% endif %}
+            </div>
+
+            <!-- Return to Order Creation -->
+            <div class="text-center mt-4">
+                <a href="{% url 'products:product_list' %}" class="btn btn-danger">Return to Home </a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
