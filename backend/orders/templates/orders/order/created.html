@@ -2,7 +2,14 @@
 {% block title %}
 Thank you!
 {% endblock %}
+
 {% block content %}
-<h1>Thank You!</h1>
-<p>The order has been placed and the order number is <strong>{{ order.id }}</strong>.</p>
+<div class="container my-5">
+    <div class="text-center">
+        <h1 class="mb-4 text-success">Thank You!</h1>
+        <p class="lead">The order has been placed successfully. Your order number is <strong>{{ order.id }}</strong>.
+        </p>
+        <a href="/" class="btn btn-primary mt-4">Go to Homepage</a>
+    </div>
+</div>
 {% endblock %}
