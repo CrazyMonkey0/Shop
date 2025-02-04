@@ -57,15 +57,15 @@
         </div>
 
         <!-- Product List -->
-        <div class="col-md-10">
+        <div class="col-prod col-md-10">
             <h1 class="mb-5 text-center mt-1">{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
-            <div class="row row-cols-1 row-cols-sm-3 row-cols-md-5 g-7">
-                {% for product in products %}
+            <div class="row-prod row row-cols-1 row-cols-sm-4 g-3">
+                {% for product in page_obj %}
                 <div class="col">
                     <div class="product-cart shadow-sm">
                         <a href="{{ product.get_absolute_url }}" class="product-image-link d-block">
                             <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"
-                                class="product-image " alt="{{ product.name }}">
+                                class="product-image" alt="{{ product.name }}">
                         </a>
                         <div class="product-cart-body">
                             <h5 class="product-title">
@@ -80,6 +80,24 @@
                 {% endfor %}
             </div>
         </div>
+    </div>
+
+    <div class="pagination mt-4">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
     </div>
 </div>
 
