@@ -8,7 +8,6 @@ This is a Django-based e-commerce application that allows users to browse produc
 - **Category Management**: Organize products into categories and subcategories.
 - **Shopping Cart**: Add products to the cart, update quantities, and remove items.
 - **Order Management**: Place orders, view order details, and manage order status.
-- **User Authentication**: Register, login, and manage user accounts.
 - **Admin Interface**: Manage products, categories, and orders through the Django admin panel.
 - **API Integration**: Integrate with external APIs for payment processing and other functionalities.
 - **Celery Integration**: Asynchronous task processing using Celery.
