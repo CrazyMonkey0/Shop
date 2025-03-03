@@ -1,5 +1,7 @@
 # Shop Project
 
+![Shop](backend/products/static/img/shop.gif)
+
 This is a Django-based e-commerce application that allows users to browse products, add them to a shopping cart, and place orders. The project includes features such as product categorization, order management, and a simple payment API.
 
 ## Features
